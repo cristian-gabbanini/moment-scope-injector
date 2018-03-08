@@ -7,7 +7,7 @@ exports.default = function(babel) {
   return {
     name: "moment-scope-injector",
     visitor: {
-      EmptyStatement(path) {
+      EmptyStatement(path, state) {
         let body = path.container[1];
         let exp2 = t.memberExpression(t.identifier("global"), t.identifier("moment"));
         let exp1 = t.memberExpression(t.thisExpression(), t.identifier("moment"));
@@ -22,7 +22,7 @@ exports.default = function(babel) {
         );
 
         path.insertAfter(
-          t.expressionStatement(t.newExpression(t.identifier("____"), [t.identifier("$G")]))
+          t.expressionStatement(t.newExpression(t.identifier("____"), [t.identifier(state.opts.scope)]))
         );
       },
       ExpressionStatement(path) {
