@@ -1,0 +1,9 @@
+{
+  "name": "moment-scope-injector",
+  "version": "1.0.0",
+  "description": "Babel plugin to inject a custom scope into moment locale modules",
+  "main": "index.js",
+  "author": "Cristian Gabbanini <cristian.gabbanini@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
